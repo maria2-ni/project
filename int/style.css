@@ -1,0 +1,701 @@
+/* google font   */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');/* naw3 lkh6 khyrna robot*/
+
+
+:root{
+  --blue:#3899db;
+  --black:#073452;
+  --wight:#fffffff4;
+}
+
+/* custom css  */
+*{
+  font-family: "Roboto", sans-serif;/*hada lkh6 li khyrnah */
+  margin: 0; padding: 0; /*Removes all default margin (spacing around elements)*/ /*Removes all default padding (space inside elements between the content and the border)*/
+  text-decoration: none;/*Removes any default text decoration, like underlines on links (<a> tags).*/
+  text-transform: capitalize;/*Capitalizes the first letter of each word in the text. So "hello world" becomes "Hello World".*/
+  outline: none;/*Removes the default outline (usually a blue glow)*/
+  box-sizing: border-box;/*Changes how element dimensions are calculated. With this setting:
+Total width = content + padding + border*/
+  transition: all linear .2s;/*Adds a smooth transition effect to all properties that change (like background color, transform, etc.).all = applies to all properties that change  linear = transition happens at a constant speed  .2s = transition lasts 0.2 seconds */
+}
+/*tbdl 7ajm lktba */  
+html{
+  font-size: 62.5%; /*This sets the base font size of the entire document.*/
+  overflow-x: hidden;/*This prevents horizontal scrolling. If any element spills out of the viewport to the side (accidentally or otherwise), this hides that overflow.*/
+}
+
+/* button  */
+.button{
+  height: 3.5rem;
+  width: 15rem;
+  background: var(--blue);
+  color: var(--wight);
+  font-size: 1.7rem;
+  text-transform: capitalize;
+  border-radius: .5rem;
+  cursor: pointer;
+  margin: 1rem 0;
+  border: .1rem solid var(--blue);
+}
+
+.button:hover{
+  border: .1rem solid var(--blue);
+  background: var(--wight);
+  color: var(--blue);
+  letter-spacing: .2rem;
+}
+
+/* heading  */
+.heading{
+  text-align: center;
+  font-size: 4rem;
+  padding: 1rem;
+  padding-top: 8rem;
+  color: var(--blue);
+  letter-spacing: .1rem;
+}
+/* title  */
+.title{
+  text-align: center;
+  padding: 0rem 1rem;
+  font-size: 2.5rem;
+  color: var(--black);
+  font-weight: 300;
+}
+
+
+
+/* header navbar section start  */
+/*b3dna logo 3la header (home w lokhrine )*/
+header{
+  width: 96%;/*The header takes up 96% of the page width*/
+  background: var(--wight);
+  position:fixed;/*Makes the header stick to a fixed position on the screen — it won’t move when you scroll.*/
+  top: 2rem;/*Positions the header 2rem from the top of the viewport.*/
+  left: 50%;
+  transform: translate(-50%);/*This shifts the header left by 50% of its own width, bach tji fi nos 9d9d */
+  display: flex; /*Flexbox makes it easy to align and space out elements */
+  align-items: center;/*Vertically centers the content inside the header*/
+  justify-content: space-between;/*First item goes to the left, Last item goes to the right, ydir space binathom*/
+  padding: 1rem 2rem;/*Adds space inside the header:*/
+  z-index: 1000;/*Places the header above most other elements on the page.*/
+}
+
+/* logo name  */
+header a{ /*hadi lawn lktba li fi logo*/
+ color: var(--black);
+}
+
+header a:hover{ /*applies styles to an element when your mouse is over it*/
+ color: var(--blue);
+}
+
+header .logo{
+ font-size: 3rem; /*7ajm logo*/
+}
+
+header .logo span{
+ color: var(--blue);
+}
+/* doka lmenu */
+/* navbar link  */
+header .navbar ul{ /*n9lbohom fi s6r wa7d*/
+ display: flex;/*This turns the <ul> (unordered list) into a flex container.*/
+ align-items: center;/* if your list items have different heights, they’ll align neatly in the middle.*/
+ justify-content: space-between;/*This spreads the list items across the full width, leaving space between them */
+ list-style: none;/*Removes the default bullets from the list (<ul> usually has them).*/
+}
+
+header .navbar ul li{
+ margin: 0 1rem; /*1rem = adds space to the left and right of each <li>*/
+}
+
+header .navbar ul li a{
+ font-size: 2rem;/*7ajm lktba fi menu*/
+ color: var(--black); /*lwnha*/
+}
+
+header .navbar ul li a:hover{
+ color: var(--blue); /*zdnalhom lawn azr9 ki yji lmouse 3lihom */
+}
+.sab_menu{
+display: none; /*hadi tkhli hadok li zaydin fi depart maybanoch */
+}
+.navbar ul li:hover .sab_menu {
+
+display: block;
+position: absolute;
+
+margin-top: 15px;
+margin-left: -15px;
+}
+.navbar ul li:hover .sab_menu ul{
+ display: block;
+ margin: 7px;
+
+}
+.navbar ul li:hover .sab_menu ul li{
+ width: 150px;
+ padding: 10px;
+ border-bottom: 1px dotted var(--black);
+ background: transparent;
+border-radius: 0px;
+text-align: left;
+}
+.navbar ul li:hover .sab_menu ul li:last-child{
+ border-bottom: none;
+}
+.navbar ul li:hover .sab_menu ul li a:hover{
+ color: var(--blue);
+}
+/*3 kh6o6 hadok*/
+header .fa-bars{
+  font-size: 3rem;/*7jmhom */
+  color: var(--blue); /*lwnhom*/
+  cursor: pointer;/*Changes the mouse cursor to a pointer (hand icon)*/
+  display: none;/*tdrg tkhfii hadok 3 ta3 menu 7tan tsghar lpage bach ybano */ /*ykhddm ki nzido media query mn ta7t */
+}
+/*hada tab3 l js */
+header .fa-times{
+  transform: rotate(180deg);
+}
+
+/*hadi bach yban line li lfo9 ta3 menu ki njiw nhb6o chwi */
+.header-active{
+  top: 0;
+  width: 100%;
+  box-shadow: .1rem .3rem rgba(0,0,0,.3);
+}
+
+
+
+/* header navbar section end  */
+
+/* home section start  */
+
+.home{
+  min-height: 100vh;/* 100% of the viewport height*/
+  padding-top: 10rem;/*Adds space at the top of the .home section*/
+}
+
+.home .row{ /*This lets child elements (like columns, images, or text blocks) sit side by side (in a row), instead of stacking.*/
+  display: flex;
+  align-items: center; /*Vertically centers all the items inside .row. So if one child is taller than another, they still line up neatly.*/
+  justify-content: space-around;/*ydir space mabinathom oufo9ian*/
+  width: 85%;
+  margin: 0 auto;
+}
+
+/* home images  */
+.home .row .images img{
+  height: 65vh;
+}
+
+/* home heading  */
+.home .content h1{
+  font-size: 4rem;
+  color: var(--black);
+}
+
+.home .content h1 span{
+  color: var(--blue);
+}
+
+.home .content p{
+  font-size: 1.9rem;
+  color: var(--black);
+}
+
+
+/* home section end  */
+/*scheduel section start */
+.schedule .row .images img{
+  height: 40vh;
+}
+.schedule .row {
+  display: flex;
+  align-items: flex-start;
+  gap: 1px; /* optional spacing between image and table */
+}
+
+
+.schedule .table{
+  margin: 0 auto;
+  transform: translateX(40px);
+  border-collapse: collapse;
+  margin: 25px 0;
+  font-size: 0.4cm;
+  min-width: 500px;
+  border-radius: 6px 6px 0 0;
+  overflow: hidden;
+  box-shadow: 0 0 20px rgba(0,0,0,15) ;
+}
+.schedule .table thead tr {
+  background-color: var(--blue);
+  color: var(--wight);
+  text-align: left;
+font-weight: bold;
+}
+.schedule .table thead th,
+.schedule .table thead td{
+  padding: 12px 20px;
+}
+.schedule .table  tbody tr {
+  border-bottom: 1px solid #f3f3f3;
+}
+.schedule .table  tbody tr:nth-of-type(even){
+  background-color: #f3f3f3;
+}
+/*lkha6 lakhr ta3 jadwl lazm ykon kbir wnfss lcolor t3 saf lwl  */
+.schedule .table  tbody tr:last-of-type{
+  border-bottom: 4px solid var(--blue);
+}
+
+/*schedual section end */
+
+
+/* about section start  */
+.about{
+  background-color: #f9f9f9;
+}
+
+.about .box-container{
+  padding: 4rem 0;
+}
+
+.about .box-container .box{
+  width: 75%;
+  margin: 4rem auto;
+  border-radius: .5rem;
+  box-shadow: 0 .3rem .5rem rgba(0,0,0,.3);
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  background: var(--wight);
+}
+
+/* about images  */
+.about .box-container .box .images{
+  height: 40rem;
+  width: 50%;
+}
+
+.about .box-container .box .images img{
+  height: 100%;
+  width: 100%;
+}
+
+/* about heading & text */
+.about .box-container .box .content{
+  height: 100%;
+  width: 50%;
+  padding: 2rem;
+}
+
+.about .box-container .box .content h3{
+  font-size: 3rem;
+  color: var(--blue);
+  display: flex;
+  align-items: start;
+}
+
+.about .box-container .box .content p{
+  font-size: 1.5rem;
+  color: var(--black);
+  padding: 1rem 0;
+  text-align: start;
+}
+
+.about .box-container .box:nth-child(even){
+  flex-flow: row-reverse;
+}
+
+
+ /* about section end  */
+
+/* card section start  */
+
+.card .box-container{
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.card .box-container .box{
+  width: 30rem;
+  margin: 2rem 1rem;
+  overflow: hidden;
+  border-radius: .5rem;
+  box-shadow: 0 .3rem .5rem rgba(0,0,0,.3);
+}
+
+/* card images  */
+.card .box-container .box img{
+  height: 30rem;
+  width: 100%;
+  object-fit: cover;
+}
+
+.card .box-container .box .content{
+  padding: 1rem 1.3rem;
+}
+
+.card .box-container .box .content h2{
+  font-size: 2rem ;
+  text-align: center;
+  color: var(--black);
+}
+
+.card .box-container .box .content h2:hover{
+  color: var(--blue);
+  text-decoration: underline;
+}
+
+.card .box-container .box .content p{
+  font-size: 1.7rem;
+  text-align: center;
+  color: var(--black);
+}
+
+.card .box-container .box .content .icons{
+  text-align: center;
+}
+
+.card .box-container .box .content .icons a{
+  font-size: 2rem;
+  color: var(--blue);
+  text-align: center;
+  margin: 1rem;
+}
+/* card section end  */
+
+/* review section start  */
+.review .box-container{
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  padding: 2rem 0;
+}
+
+.review .box-container .box{
+  width: 35rem;
+  text-align: center;
+  padding: 0 2rem;
+  margin: 4rem 1.5rem;
+  box-shadow: 0 .3rem .5rem rgba(0,0,0,.3);
+}
+
+/* images  */
+.review .box-container .box .images{
+  display: flex;
+  align-items: center;
+  text-align: left;
+  padding: .5rem 0;
+  border-top: .1rem solid #333;
+}
+
+.review .box-container .box .images img{
+  height: 9rem;
+  width: 9rem;
+  border-radius: 50%;
+  object-fit: cover;
+  margin: .8rem 1rem;
+}
+
+.review .box-container .box i{
+  font-size: 6rem ;
+  margin-top: -3rem;
+  color: var(--blue);
+  opacity: .4;
+}
+
+
+.review .box-container .box p{
+  color: var(--black);
+  font-size: 1.7rem;
+  padding: 2rem 0;
+}
+
+.review .box-container .box .info h3{
+  color: var(--blue);
+  font-size: 2rem;
+}
+.review .box-container .box .info span{
+  color: var(--black);
+  font-size: 2rem;
+}
+/* review section end */
+
+/* contact section start  */
+.Book{
+  background: #eee;
+}
+
+.Book .row{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 5rem 0;
+}
+
+.Book .row .images img{
+  width: 50vw;
+  height: 70vh;
+}
+
+.Book .row  .form-container{
+  width: 50%;
+  padding-right: 6rem;
+}
+
+.Book .row  .form-container input, textarea{
+  height: 4rem;
+  width: 100%;
+  background: var(--wight);
+  border: none;
+  border-radius: 5rem;
+  padding: 0 1rem;
+  margin: 1rem 0;
+  color: var(--blue);
+  font-size: 1.7rem;
+}
+
+.Book .row  .form-container input:focus , textarea:focus{
+  border: .2rem solid var(--blue);
+}
+
+.Book .row  .form-container textarea{
+  height: 20rem;
+  border-radius: 1rem;
+  padding: 1rem;
+  resize: none;
+}
+
+.Book .row  .form-container input[type="submit"]{
+  width: 17rem;
+  background: var(--blue);
+  color: var(--wight);
+  cursor: pointer;
+  font-size: 2rem;
+}
+
+.Book .row  .form-container input[type="submit"]:hover{
+  background: var(--wight);
+  color: var(--blue);
+  border: .2rem solid var(--blue);
+}
+/* contact section end  */
+
+/* bolg section start  */
+.blog .box-container{
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.blog .box-container .box{
+  width: 35rem;
+  margin: 2rem 1rem;
+  overflow: hidden;
+  border-radius: .5rem;
+  box-shadow: 0 .3rem .5rem rgba(0,0,0,.3);
+}
+
+/* blog images  */
+.blog .box-container .box img{
+  width: 100%;
+  object-fit: cover;
+}
+
+.blog .box-container .box .content{
+  padding: 0 1.5rem;
+}
+
+.blog .box-container .box .content h2{
+  font-size: 2rem;
+  color: var(--blue);
+}
+
+.blog .box-container .box .content p{
+  font-size: 1.3rem;
+  color: var(--black);
+}
+/* bolg section end  */
+
+/* footer section start  */
+.footer{
+background: var(--black);
+display: flex;
+justify-content: center;
+flex-wrap: wrap;
+padding: 2rem 0;
+}
+
+.footer .box{
+width: 30rem;
+margin: 2rem;
+text-align: center;
+}
+
+.footer .box:nth-child(1){
+text-align: left;
+}
+
+/* logo  */
+
+.footer .box .logo{
+padding: 2rem 0;
+font-size: 3rem;
+color: var(--wight);
+}
+
+.footer .box .logo:hover{
+color: var(--blue);
+}
+
+.footer .box .logo span{
+color: var(--blue);
+}
+
+.footer .box p{
+font-size: 1.5rem;
+color: var(--wight);
+}
+
+.footer .box a{
+color: var(--wight);
+font-size: 2rem;
+display: block;
+padding: .2rem 0;
+}
+
+.footer .box a:hover{
+text-decoration: underline;
+}
+
+
+.footer .credit{
+width: 85%;
+padding-top: 1rem;
+font-size: 2rem;
+color: var(--wight);
+text-align: center;
+border-top: .2rem solid var(--wight);
+}
+
+.footer .credit span{
+color: var(--blue);
+text-decoration: underline;
+letter-spacing: .5rem;
+}
+
+
+
+/* footer section end  */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*This block of CSS will only apply when the screen width is 768px or less*/
+
+
+/* media query  */
+
+@media (max-width:768px){
+
+  html{
+      font-size: 55%;
+  }
+
+  header .fa-bars{
+      display: block;
+  }
+  
+  header .navbar{
+      position: fixed;
+      top: -100rem; left: 0;
+      width: 100%;
+      background: var(--wight);
+      opacity: 0;/* hadi t9lb ta3 lmenu maybanoch mkhtafiin */
+  }
+/*9lbna lmenu blocks ta7t b3ad */
+  header .navbar ul{
+      flex-flow: column;
+      padding: 2rem 0; /*6ol lbox*/
+  }
+/*lespace mabn kol wa7da */
+  header .navbar ul li{
+      margin: 1rem 0;
+      width: 100%;
+      text-align: center;
+  }
+/*kbrna lktba */
+  header .navbar ul li a{
+      font-size: 3rem;
+      display: block;
+  }
+/*hada tab3 ljs */
+  header .nav-toggle{
+      top: 5.5rem;
+      opacity: 1;
+  }
+
+  /* home media query  */
+
+  .home .row{
+      flex-flow: column;
+  }
+
+  .home .row .content{
+      text-align: center;
+  }
+
+  /* home images  */
+  .home .row .images img{
+      width: 100%;
+  }
+
+/* about media query  */
+ .about .box-container .box{
+  flex-flow: column;
+  width: 90%;
+ }
+
+ .about .box-container .box:nth-child(even){
+  flex-flow: column;
+ }
+
+ .about .box-container .box .images{
+  width: 100%;
+ }
+
+ .about .box-container .box .content{
+  width: 100%;
+ }
+ 
+ /* contact form  */
+ .contact .row{
+  flex-flow: column;
+ }
+
+ .contact .row .images img{
+  height: 50vh;
+  width: 90vw;
+ }
+
+ .contact .row .form-container{
+  width: 90%;
+  padding: 0;
+ }
+}
